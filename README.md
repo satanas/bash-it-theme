@@ -1,7 +1,7 @@
 Hostyle Theme For Bash-It
 =========================
 
-This is my personal theme for bash-it. It's a mixture of simplicity and functionality and I'm still working on colorscheme.
+This is my personal theme for [bash-it](https://github.com/revans/bash-it). It's a mixture of simplicity and functionality.
 
 For a git folder it looks like:
 ```
