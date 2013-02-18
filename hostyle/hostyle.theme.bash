@@ -29,7 +29,7 @@ function git_prompt_info {
     fi
     SHA=$(git rev-parse --short HEAD 2> /dev/null) && GIT_SHA="$GIT_SHA_PREFIX$SHA$GIT_SHA_SUFFIX"
     if [[ -n $SHA ]]; then
-        echo -e "[$SCM_GIT_CHAR] ${yellow}$SCM_BRANCH ${purple}$SHA $SCM_STATE"
+        echo -e " [$SCM_GIT_CHAR] ${yellow}$SCM_BRANCH ${purple}$SHA $SCM_STATE"
     else
         echo -e ""
     fi
@@ -37,7 +37,7 @@ function git_prompt_info {
 
 
 function prompt_command() {
-    PS1="${green}[\u@\h ${normal}\W $(git_prompt_info)${green}]${normal}\$ "
+    PS1="${green}[\u@\h ${normal}\W$(git_prompt_info)${green}]${normal}\$ "
 }
 
 PROMPT_COMMAND=prompt_command

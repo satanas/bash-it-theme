@@ -5,12 +5,12 @@ This is my personal theme for bash-it. It's a mixture of simplicity and function
 
 For a git folder it looks like:
 ```
-[user@host current_directory ± |git_branch git_sha ✗]$
+[user@host current_directory [±] git_branch git_sha ✗]$
 ```
 
 For a non-git folder it looks like:
 ```
-[user@host current_directory ]$
+[user@host current_directory]$
 ```
 
 The git information only appears when you are in a git folder. Follow the instructiones below to install it.
