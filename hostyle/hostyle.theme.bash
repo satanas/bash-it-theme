@@ -6,11 +6,11 @@ SCM_THEME_PROMPT_CLEAN="${green}✓${reset_color}"
 SCM_THEME_PROMPT_AHEAD="${yellow}!${reset_color}"
 
 function git_prompt_info {
-    if [[ -e $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
+    if [[ ! $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
         SCM_DIRTY=0
         SCM_STATE=${GIT_THEME_PROMPT_CLEAN:-$SCM_THEME_PROMPT_CLEAN}
     else
-        if [[ -e $(git status -s 2> /dev/null |grep -v ^# |grep -v "branch is ahead") ]]; then
+        if [[ ! $(git status -s 2> /dev/null |grep -v ^# |grep -v "branch is ahead") ]]; then
             SCM_DIRTY=2
             SCM_STATE=${GIT_THEME_PROMPT_AHEAD:-$SCM_THEME_PROMPT_AHEAD}
         else
@@ -18,6 +18,7 @@ function git_prompt_info {
             SCM_STATE=${GIT_THEME_PROMPT_DIRTY:-$SCM_THEME_PROMPT_DIRTY}
         fi
     fi
+
     local ref=$(git symbolic-ref HEAD 2> /dev/null)
     SCM_BRANCH=${ref#refs/heads/}
     SCM_CHANGE=$(git rev-parse HEAD 2>/dev/null)
@@ -28,7 +29,7 @@ function git_prompt_info {
     fi
     SHA=$(git rev-parse --short HEAD 2> /dev/null) && GIT_SHA="$GIT_SHA_PREFIX$SHA$GIT_SHA_SUFFIX"
     if [[ -n $SHA ]]; then
-        echo -e "$SCM_GIT_CHAR ${bold_white}|$SCM_BRANCH ${yellow}$SHA${reset_color} $SCM_STATE"
+        echo -e "[$SCM_GIT_CHAR] ${yellow}$SCM_BRANCH ${purple}$SHA $SCM_STATE"
     else
         echo -e ""
     fi
@@ -36,8 +37,7 @@ function git_prompt_info {
 
 
 function prompt_command() {
-    PS1="${bold_green}[${green}\u@\h ${bold_purple}\W $(git_prompt_info)${bold_green}]${normal}\$ "
+    PS1="${green}[\u@\h ${normal}\W $(git_prompt_info)${green}]${normal}\$ "
 }
 
-echo -e "$SCM - $SCM_GIT - $SHA"
 PROMPT_COMMAND=prompt_command
