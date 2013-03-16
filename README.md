@@ -19,7 +19,8 @@ Installation
 ============
 
 ```
-git clone git://github.com/satanas/bash-it-theme.git ~/.bash_it/themes
+git clone git://github.com/satanas/bash-it-theme.git ~/bash-it-theme
+ln -s ~/bash-it-theme/hostyle ~/.bash_it/themes/
 ```
 
 Suggestions are welcome
