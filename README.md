@@ -19,7 +19,7 @@ Installation
 ============
 
 ```
-git clone git://github.com/satanas/bash-it-theme.git ~/.bash-it/themes
+git clone git://github.com/satanas/bash-it-theme.git ~/.bash_it/themes
 ```
 
 Suggestions are welcome
