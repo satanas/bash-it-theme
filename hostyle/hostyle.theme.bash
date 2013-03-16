@@ -6,11 +6,11 @@ SCM_THEME_PROMPT_CLEAN="${green}✓${reset_color}"
 SCM_THEME_PROMPT_AHEAD="${yellow}!${reset_color}"
 
 function git_prompt_info {
-    if [[ ! $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
+    if [[ $(git status 2> /dev/null |grep -v ^# |grep "working directory clean") ]]; then
         SCM_DIRTY=0
         SCM_STATE=${GIT_THEME_PROMPT_CLEAN:-$SCM_THEME_PROMPT_CLEAN}
     else
-        if [[ ! $(git status -s 2> /dev/null |grep -v ^# |grep -v "branch is ahead") ]]; then
+        if [[ $(git status 2> /dev/null |grep "branch is ahead") ]]; then
             SCM_DIRTY=2
             SCM_STATE=${GIT_THEME_PROMPT_AHEAD:-$SCM_THEME_PROMPT_AHEAD}
         else
