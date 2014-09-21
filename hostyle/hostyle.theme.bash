@@ -35,9 +35,18 @@ function git_prompt_info {
     fi
 }
 
+function virtualenv_prompt_info() {
+    if [[ $VIRTUAL_ENV != "" ]]
+    then
+        echo -e " ${red}(${VIRTUAL_ENV##*/})"
+    else
+        echo -e ""
+    fi
+}
+
 
 function prompt_command() {
-    PS1="${green}[\u@\h ${normal}\W$(git_prompt_info)${green}]${normal}\$ "
+    PS1="${green}[\u@\h ${normal}\W$(git_prompt_info)$(virtualenv_prompt_info)${green}]${normal}\$ "
 }
 
 PROMPT_COMMAND=prompt_command
