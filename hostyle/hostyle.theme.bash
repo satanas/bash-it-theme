@@ -6,7 +6,7 @@ SCM_THEME_PROMPT_CLEAN="${green}✓${reset_color}"
 SCM_THEME_PROMPT_AHEAD="${yellow}!${reset_color}"
 
 function git_prompt_info {
-    if [[ $(git status 2> /dev/null |grep -v ^# |grep "working directory clean") ]]; then
+    if [[ $(git status 2> /dev/null |grep -v ^# |grep "working tree clean") ]]; then
         SCM_DIRTY=0
         SCM_STATE=${GIT_THEME_PROMPT_CLEAN:-$SCM_THEME_PROMPT_CLEAN}
     else
