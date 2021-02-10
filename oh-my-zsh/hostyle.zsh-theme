@@ -1,17 +1,17 @@
 function git_info_wrapper() {
   if $(git rev-parse --is-inside-work-tree >/dev/null 2>&1); then
-    echo " %B%{$fg[red]%}±%{$reset_color%}%b $(git_prompt_info)"
+    echo ' %B%{$fg[red]%}±%{$reset_color%}%b $(git_prompt_info)'
   else
     echo ''
   fi
 }
 
 function git_sha() {
-  echo " %{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}"
+  echo ' %{$fg[yellow]%}$(git_prompt_short_sha)%{$reset_color%}'
 }
 
 function user_info() {
-  echo "%{$fg[green]%}%n@%m%{$reset_color%}"
+  echo '%{$fg[green]%}%n@%m%{$reset_color%}'
 }
 
 PROMPT='[$(user_info) %1/$(git_info_wrapper)]$ '
