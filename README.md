@@ -23,12 +23,32 @@ git clone git://github.com/satanas/hostyle-theme.git ~/hostyle-theme
 ln -s ~/hostyle-theme/bash-it/hostyle ~/.bash_it/themes/
 ```
 
+Edit your `~/.bashrc` to include:
+```
+BASH_IT_THEME="hostyle"
+```
+
+Then, reload your shell:
+```
+source ~/.bashrc
+```
+
 Installation for Oh-My-Zsh
 ===
 
 ```
 git clone git://github.com/satanas/hostyle-theme.git ~/hostyle-theme
 ln -s ~/hostyle-theme/oh-my-zsh/hostyle.zsh-theme ~/.oh-my-zsh/themes/
+```
+
+Edit your `~/.zshrc` to include:
+```
+ZSH_THEME="hostyle"
+```
+
+Then, reload your shell:
+```
+source ~/.zshrc
 ```
 
 Suggestions are welcome
