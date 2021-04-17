@@ -3,6 +3,8 @@ Hostyle Theme For Your Shell
 
 This is my personal theme for [bash-it](https://github.com/revans/bash-it) and [oh-my-zsh](https://ohmyz.sh/). It's a mixture of simplicity and functionality.
 
+![Screenshot](hostyle-screenshot.png)
+
 For a git folder it looks like:
 ```
 [user@host current_directory ± git_branch git_sha ✗]$
